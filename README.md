@@ -99,7 +99,9 @@ This blog is hosted on GitHub Pages and serves as both my personal writing space
 
 "The web is not just a technology, it's a canvas for creativity and a platform for sharing knowledge."
 
-Built with HTML, CSS, and JavaScript · No frameworks · Just pure web
+### Built with HTML, CSS, and JavaScript
+· No frameworks</br>
+· Just pure web</br>
 
 ---
 
