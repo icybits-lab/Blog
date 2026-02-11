@@ -74,34 +74,34 @@ As a web developer, I wanted a personal blog that:
 
 Through building and maintaining this blog, I'm exploring:
 
-· JavaScript design patterns
-· CSS Grid and Flexbox layouts
-· Performance optimization
-· Accessibility best practices
-· Progressive enhancement
+· JavaScript design patterns </br>
+· CSS Grid and Flexbox layouts </br>
+· Performance optimization </br>
+· Accessibility best practices</br>
+· Progressive enhancement</br>
 
 ### 📝 My Writing Topics
 
 I write about:
 
-· Web development tutorials and tips
-· JavaScript insights
-· UI/UX design thoughts
-· Technology trends
-· Personal projects and experiments
-· Learning experiences
+· Web development tutorials and tips</br>
+· JavaScript insights</br>
+· UI/UX design thoughts</br>
+· Technology trends</br>
+· Personal projects and experiments</br>
+· Learning experiences</br>
 
 ### 🚀 Live Demo
 
 This blog is hosted on GitHub Pages and serves as both my personal writing space and a portfolio piece demonstrating my front-end development skills. Some of the blogs will be enhanced (not written) by AI to make it appealing to read. (since I'm not a writer)
 
--
+---
 
 "The web is not just a technology, it's a canvas for creativity and a platform for sharing knowledge."
 
 Built with HTML, CSS, and JavaScript · No frameworks · Just pure web
 
--
+---
 
 © 2026 icybits-lab. All rights reserved.  
 This code is private. Do not copy, use, or redistribute without permission.
