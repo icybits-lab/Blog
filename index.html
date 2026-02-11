@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-blog"></i> My Blog
+            </h1>
+            <nav class="nav">
+                <a href="#" id="home-link" class="nav-link active">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" id="archive-link" class="nav-link">
+                    <i class="fas fa-archive"></i> Archive
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="content-area">
+            <!-- Current post will be displayed here -->
+            <div id="current-post" class="current-post-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading blog posts...
+                </div>
+            </div>
+            
+            <!-- Archive section -->
+            <div id="archive-section" class="archive-section">
+                <h2 class="section-title">
+                    <i class="fas fa-history"></i> Older Posts
+                </h2>
+                <div id="archive-posts" class="archive-posts">
+                    <!-- Archived posts will be displayed here -->
+                </div>
+            </div>
+            
+            <!-- Author Section -->
+            <div class="author-section main-author-section">
+                <div class="author-section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-user"></i> About the Author
+                    </h2>
+                </div>
+                
+                <div class="author-content">
+                    <div class="author-profile">
+                        <div class="author-avatar-large">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-details-expanded">
+                            <h3 class="author-name-large">IcyBits</h3>
+                            <p class="author-title">Mini Web Developer & Blogger</p>
+                            <p class="author-bio-expanded">Passionate web developer, technology enthusiast, and nature lover. I enjoy creating clean, efficient code and sharing knowledge through blogging. When I'm not coding, you can find me doing the most jobless things imaginable. I love my tea extremely sweet.</p>
+                            
+                            <div class="author-expertise">
+                                <h4><i class="fas fa-cogs"></i> Expertise</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">HTML/CSS</span>
+                                    <span class="expertise-tag">JavaScript</span>
+                                    <span class="expertise-tag">Web Design</span>
+                                    <span class="expertise-tag">UI/UX</span>
+                                    <span class="expertise-tag">Responsive Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="author-stats-grid">
+                        <div class="author-stat-item">
+                            <div class="stat-number" id="post-count">0</div>
+                            <div class="stat-label">Blog Posts</div>
+                        </div>
+                        <div class="author-stat-item">
+                            <div class="stat-number">1.5+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="author-stat-item">
+                            <div class="stat-number">2026</div>
+                            <div class="stat-label">Started Blogging</div>
+                        </div>
+                        <div class="author-stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="author-social-expanded">
+                        <h4><i class="fas fa-share-alt"></i> Connect With Me</h4>
+                        <div class="social-links-grid">
+                            <a href="https://github.com/icybits-lab" class="social-link-large" title="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://discord.gg/afwrcM5f" class="social-link-large" title="Discord">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/montasir-rahman-8470a33b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link-large" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:mahirahmansocial503@gmail.com" class="social-link-large" title="Email">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="#" class="social-link-large" title="Portfolio">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Portfolio</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="author-quote">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote-text">"The web is not just a technology, it's a canvas for creativity and a platform for sharing knowledge. Through this blog, I hope to inspire others and contribute to the amazing web development community."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="fas fa-info-circle"></i> About This Blog
+                </h3>
+                <p>Welcome to my personal blog! Here I share my thoughts, ideas, and experiences.</p>
+                <p>This blog is built with pure HTML, CSS, and JavaScript, loading content dynamically from text files.</p>
+                <div class="blog-stats">
+                    <div class="blog-stat">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Supports TXT & HTML posts</span>
+                    </div>
+                    <div class="blog-stat">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Fully responsive design</span>
+                    </div>
+                    <div class="blog-stat">
+                        <i class="fas fa-code"></i>
+                        <span>No frameworks required</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="fas fa-calendar-alt"></i> Recent Posts
+                </h3>
+                <ul id="recent-posts-list" class="recent-posts-list">
+                    <!-- Recent posts will be dynamically added here -->
+                </ul>
+            </div>
+            
+            <!--<div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="fas fa-tags"></i> Popular Tags
+                </h3>
+                <div class="tags-container">
+                    <span class="tag">Technology</span>
+                    <span class="tag">Web Development</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Tutorials</span>
+                    <span class="tag">Design</span>
+                    <span class="tag">HTML/CSS</span>
+                </div>
+            </div>-->
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Blog. All rights reserved.</p>
+            <p>Built with HTML, CSS, and JavaScript</p>
+            <!--<div class="footer-links">
+                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
+                <a href="#"><i class="fas fa-sitemap"></i> Sitemap</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+            </div>-->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
