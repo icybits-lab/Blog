@@ -1,4 +1,5 @@
 ### My Personal Blog
+[Open](https://icybits-lab.github.io/Blog/)
 
 A simple, elegant personal blog built with HTML, CSS, and JavaScript. This blog loads content dynamically from text and HTML files, with no database or backend required.
 
