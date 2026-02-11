@@ -44,17 +44,17 @@ Interests: Web development, UI/UX design, technology, nature
 
 ### Connect With Me
 
-· Discord: icybits
+· Discord: icybits </br>
 · Email: mahirahmansocial503@gmail.com
 
 ### ✨ Features
 
-· Dynamic Content: Posts load from simple text/HTML files
-· Responsive Design: Works perfectly on all devices
-· Clean UI: Minimal, readable design
-· Archive System: Easy navigation through older posts
-· No Backend: Everything runs in the browser
-· Fast Loading: No heavy frameworks or dependencies
+· Dynamic Content: Posts load from simple text/HTML files </br>
+· Responsive Design: Works perfectly on all devices </br>
+· Clean UI: Minimal, readable design </br>
+· Archive System: Easy navigation through older posts </br>
+· No Backend: Everything runs in the browser </br>
+· Fast Loading: No heavy frameworks or dependencies </br>
 
 ### 🎨 Design Philosophy
 
