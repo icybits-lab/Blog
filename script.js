@@ -7,14 +7,47 @@ const archiveLink = document.getElementById('archive-link');
 const archiveSection = document.getElementById('archive-section');
 const postCountElement = document.getElementById('post-count');
 
+// Create and add back to top button
+const backToTopButton = document.createElement('div');
+backToTopButton.className = 'back-to-top';
+backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+document.body.appendChild(backToTopButton);
+
 // State variables
 let posts = [];
 let currentPost = null;
 
+// Smooth scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Scroll to element function
+function scrollToElement(element, offset = 20) {
+    if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+            top: elementPosition - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Show/hide back to top button based on scroll position
+function toggleBackToTopButton() {
+    if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+}
+
 // Initialize the blog
 async function initBlog() {
     try {
-        // Load the posts.json file
         const response = await fetch('posts.json');
         if (!response.ok) {
             throw new Error('Failed to load posts.json');
@@ -30,15 +63,11 @@ async function initBlog() {
                     throw new Error(`Failed to load post: ${filename}`);
                 }
                 
-                // Get file extension
                 const fileExtension = filename.split('.').pop().toLowerCase();
                 
-                // Parse the filename to extract date and title
                 const parsed = parseFilename(filename);
                 
-                // Load content based on file type
                 if (fileExtension === 'html') {
-                    // For HTML files, get the content as HTML
                     const content = await postResponse.text();
                     return {
                         filename,
@@ -49,7 +78,6 @@ async function initBlog() {
                         type: 'html'
                     };
                 } else {
-                    // For TXT files and any other text files
                     const content = await postResponse.text();
                     return {
                         filename,
@@ -66,19 +94,15 @@ async function initBlog() {
         // Sort posts by date (newest first)
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         
-        // Update post count in author section
         updatePostCount(posts.length);
         
-        // Display the first (newest) post as current
         if (posts.length > 0) {
             displayCurrentPost(posts[0]);
             currentPost = posts[0];
         }
         
-        // Display archive posts (all except the first)
         displayArchivePosts(posts.slice(1));
         
-        // Display recent posts in sidebar
         displayRecentPosts(posts);
         
     } catch (error) {
@@ -97,7 +121,6 @@ async function initBlog() {
 // Update post count in author section
 function updatePostCount(count) {
     if (postCountElement) {
-        // Animate the count up
         let current = 0;
         const increment = Math.ceil(count / 50);
         const timer = setInterval(() => {
@@ -111,12 +134,10 @@ function updatePostCount(count) {
     }
 }
 
-// Parse filename to extract date and title (supports .txt and .html)
+// Parse filename to extract date and title
 function parseFilename(filename) {
-    // Remove file extension (.txt or .html)
     const nameWithoutExt = filename.replace(/\.[^/.]+$/, '');
     
-    // Split by dash, first three parts should be date
     const parts = nameWithoutExt.split('-');
     
     if (parts.length >= 4) {
@@ -125,10 +146,9 @@ function parseFilename(filename) {
         
         return {
             date: new Date(dateStr),
-            title: title.replace(/-/g, ' ') // Replace hyphens with spaces
+            title: title.replace(/-/g, ' ')
         };
     } else {
-        // Fallback if filename doesn't match expected format
         return {
             date: new Date(),
             title: nameWithoutExt.replace(/-/g, ' ')
@@ -147,14 +167,11 @@ function formatDate(date) {
 
 // Display the current (main) post
 function displayCurrentPost(post) {
-    // Determine content based on post type
     let postContent;
     
     if (post.type === 'html') {
-        // For HTML posts, use the content as-is
         postContent = post.content;
     } else {
-        // For TXT posts, format the content
         postContent = formatPostContent(post.content);
     }
     
@@ -171,6 +188,9 @@ function displayCurrentPost(post) {
     homeLink.classList.add('active');
     archiveLink.classList.remove('active');
     archiveSection.style.display = 'block';
+    
+    // Scroll to top
+    scrollToTop();
 }
 
 // Display archived posts (only titles)
@@ -235,12 +255,17 @@ function displayArchivePost(post) {
     document.getElementById('back-home').addEventListener('click', (e) => {
         e.preventDefault();
         displayCurrentPost(posts[0]);
+        // Scroll to top after loading latest post
+        setTimeout(() => scrollToTop(), 100);
     });
     
     // Update active state
     archiveLink.classList.add('active');
     homeLink.classList.remove('active');
     archiveSection.style.display = 'none';
+    
+    // Scroll to top
+    scrollToTop();
 }
 
 // Display recent posts in the sidebar
@@ -277,7 +302,7 @@ function displayRecentPosts(allPosts) {
     });
 }
 
-// Format TXT post content (basic markdown-like formatting)
+// Format TXT post content
 function formatPostContent(content) {
     // Convert line breaks to paragraphs
     let formatted = content
@@ -318,7 +343,6 @@ function formatPostContent(content) {
         })
         .join('');
     
-    // Convert single line breaks to <br> tags within paragraphs
     formatted = formatted.replace(/<\/p>\n<p>/g, '</p><p>');
     formatted = formatted.replace(/\n/g, '<br>');
     
@@ -330,13 +354,14 @@ homeLink.addEventListener('click', (e) => {
     e.preventDefault();
     if (posts.length > 0) {
         displayCurrentPost(posts[0]);
+        setTimeout(() => scrollToTop(), 100);
     }
 });
 
 archiveLink.addEventListener('click', (e) => {
     e.preventDefault();
-    // Show all posts in archive view
     displayArchiveView();
+    setTimeout(() => scrollToTop(), 100);
 });
 
 // Display all posts in an archive view
@@ -381,7 +406,16 @@ function displayArchiveView() {
     archiveLink.classList.add('active');
     homeLink.classList.remove('active');
     archiveSection.style.display = 'none';
+    
+    // Scroll to top
+    scrollToTop();
 }
+
+// Add scroll event listener
+window.addEventListener('scroll', toggleBackToTopButton);
+
+// Add click event to back to top button
+backToTopButton.addEventListener('click', scrollToTop);
 
 // Initialize the blog when the page loads
 document.addEventListener('DOMContentLoaded', initBlog);
